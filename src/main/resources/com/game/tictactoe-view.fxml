@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0"
+            prefWidth="485.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.game.Tictactoe">
+    <children>
+        <Button fx:id="btnOne" onAction="#one" layoutX="77.0" layoutY="182.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnTwo" onAction="#two" layoutX="187.0" layoutY="182.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnThree" onAction="#three" layoutX="299.0" layoutY="182.0" mnemonicParsing="false"
+                prefHeight="103.0" prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnFour" onAction="#four" layoutX="77.0" layoutY="285.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnFive" onAction="#five" layoutX="187.0" layoutY="285.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnSix" onAction="#six" layoutX="299.0" layoutY="285.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnSeven" onAction="#seven" layoutX="77.0" layoutY="388.0" mnemonicParsing="false"
+                prefHeight="103.0" prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnEight" onAction="#eight" layoutX="187.0" layoutY="388.0" mnemonicParsing="false"
+                prefHeight="103.0" prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnNine" onAction="#nine" layoutX="299.0" layoutY="388.0" mnemonicParsing="false" prefHeight="103.0"
+                prefWidth="112.0">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Button>
+        <Separator layoutX="20.0" layoutY="157.0" prefHeight="12.0" prefWidth="445.0"/>
+        <Label layoutX="20.0" layoutY="16.0" prefHeight="59.0" prefWidth="445.0" text="   TICTACTOE"
+               textAlignment="CENTER" textFill="#c73c3c">
+            <font>
+                <Font name="System Bold" size="64.0"/>
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="106.0" prefHeight="43.0" prefWidth="445.0" text="Player" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold Italic" size="24.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
