@@ -1,0 +1,10 @@
+// Methode: Ist das Spielfeld voll?
+
+boolean isBoardFull()
+    für jede Zeile (i von 0 bis 2)
+        für jede Spalte (j von 0 bis 2)
+            wenn das Feld board[i][j] leer ist (also null)
+                dann ist das Spielfeld noch nicht voll
+                gib false zurück
+    // Wenn kein leeres Feld gefunden wurde
+    gib true zurück

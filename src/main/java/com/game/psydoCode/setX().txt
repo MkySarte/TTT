@@ -1,0 +1,10 @@
+private void setX(int reihe, int spalte, Button btnX) {
+    wenn (board[reihe][spalte] == null) {
+        board[reihe][spalte] = aktuellerSpieler;
+        btnX.setText(aktuellerSpieler);
+    }
+}
+
+Wenn das Feld leer ist
+Spielerzeichen setzen im Array
+Button-Text aktualisieren

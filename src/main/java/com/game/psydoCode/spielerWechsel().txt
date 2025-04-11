@@ -1,0 +1,4 @@
+private void switch() {
+    wenn jetziger spieler = jetziger spieler == p1 ? bot : p1
+}
+t

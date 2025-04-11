@@ -1,0 +1,38 @@
+// WinCheck-Methode (Pseudocode)
+private boolean winCheck(String spieler) {
+
+    // Reihen prüfen
+    für (i von 0 bis 2) {
+        wenn (spieler == board[i][0] UND
+             spieler == board[i][1] UND
+             spieler == board[i][2]) {
+            return true;
+        }
+    }
+
+    // Spalten prüfen
+    für (i von 0 bis 2) {
+        wenn (spieler == board[0][i] UND
+             spieler == board[1][i] UND
+             spieler == board[2][i]) {
+            return true;
+        }
+    }
+
+    // Diagonale links oben nach rechts unten
+    wenn (spieler == board[0][0] UND
+         spieler == board[1][1] UND
+         spieler == board[2][2]) {
+        return true;
+    }
+
+    // Diagonale rechts oben nach links unten
+    wenn (spieler == board[0][2] UND
+         spieler == board[1][1] UND
+         spieler == board[2][0]) {
+        return true;
+    }
+
+    // Kein Gewinn
+    return false;
+}

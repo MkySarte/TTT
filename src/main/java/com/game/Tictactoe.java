@@ -5,7 +5,13 @@ package com.game;
 // *
 // *
 // *
-
+/*
+* setX()
+* playerSwitch()
+* isBoardFull()
+* checkWinner()
+*
+* */
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +21,10 @@ public class Tictactoe {
 
     //das Spielfeld erstellen als array
     String[][] board = new String[3][3];
-
     //Spieler
     String playerX = "X";
-    //Bot
+    //Bot || andere Spieler
     String playerO = "O";
-
     String yourTurn = playerX;
 
     //Button Fx:id
@@ -37,18 +41,14 @@ public class Tictactoe {
     @FXML
     private Label welcomeText;
 
-    private void setX(int reihe, int spalte, Button btnX) {
-        if(board[reihe][spalte] == null) {
-            board[reihe][spalte] = yourTurn;
-            btnX.setText(yourTurn);
-        }
-    }
+
 
     //button 1-9 //onaction"#" nicht vergessen
     @FXML
     protected void one() {
         //[0][0]
         setX(0,0,btnOne);
+       // playerSwitch();
         System.out.println("Pressed: one");
     }
 
@@ -56,6 +56,7 @@ public class Tictactoe {
     protected void two() {
         //[0][1]
         setX(0,1,btnTwo);
+       // playerSwitch();
         System.out.println("Pressed: two");
     }
 
@@ -63,6 +64,7 @@ public class Tictactoe {
     protected void three() {
         //[0][2]
         setX(0,2,btnThree);
+       // playerSwitch();
         System.out.println("Pressed: three");
     }
 
@@ -70,6 +72,7 @@ public class Tictactoe {
     protected void four() {
         //[1][0]
         setX(1,0,btnFour);
+       // playerSwitch();
         System.out.println("Pressed: five");
     }
 
@@ -77,6 +80,7 @@ public class Tictactoe {
     protected void five() {
         //[1][1]
         setX(1,1,btnFive);
+       // playerSwitch();
         System.out.println("Pressed: five");
     }
 
@@ -84,13 +88,16 @@ public class Tictactoe {
     protected void six() {
         //[1][2]
         setX(1,2,btnSix);
+       // playerSwitch();
         System.out.println("Pressed: six");
+
     }
 
     @FXML
     protected void seven() {
         //[2][0]
         setX(2,0,btnSeven);
+        //playerSwitch();
         System.out.println("Pressed: seven");
     }
 
@@ -98,6 +105,7 @@ public class Tictactoe {
     protected void eight() {
         //[2][1]
         setX(2,1,btnEight);
+        //playerSwitch();
         System.out.println("Pressed: eight");
     }
 
@@ -105,28 +113,67 @@ public class Tictactoe {
     protected void nine() {
         //[2][2]
         setX(2,2,btnNine);
+        //playerSwitch();
         System.out.println("Pressed: nine");
     }
 
-}
+    private void setX(int reihe, int spalte, Button btnX) {
+        if(board[reihe][spalte] == null) {
+            board[reihe][spalte] = yourTurn;
+            btnX.setText(yourTurn);
+            btnX.setDisable(true);
 
-/*
- * setzen von X und O
- *
- * beim drücken soll X eingegbeen werden also .setText
- *
- * private void setX(int reihe, int spalte, Button btnX) {
- *   wenn(board [reihe][spalte] == null) {
- *       //dann setze X wo der jetzige spieler gerade drückt
- *       board[reihe][spalte] = jetzige spieler
- *       btnX.setText(X)
- * }
- * }
- *
- * spielerWechsel()
- * winCheack()
- * botZug()
- *
- *
- *
- * */
+            if(checkWinner(yourTurn)) {
+                welcomeText.setText("winner winner chicken dinner");
+            } else if(isBoardFull()){
+                welcomeText.setText("Unentschieden!");
+            }
+            else {
+                playerSwitch();
+            }
+        }
+    }
+
+    private void playerSwitch() {
+        yourTurn = yourTurn.equals(playerX) ? playerO : playerX;
+    }
+
+    private boolean checkWinner(String spieler) {
+        // Reihen prüfen
+        for (int i = 0; i < 3; i++) {
+            if (spieler.equals(board[i][0]) && spieler.equals(board[i][1]) && spieler.equals(board[i][2])) {
+                return true;
+            }
+        }
+
+        // Spalten prüfen
+        for (int i = 0; i < 3; i++) {
+            if (spieler.equals(board[0][i]) && spieler.equals(board[1][i]) && spieler.equals(board[2][i])) {
+                return true;
+            }
+        }
+
+        // Diagonalen prüfen
+        if (spieler.equals(board[0][0]) && spieler.equals(board[1][1]) && spieler.equals(board[2][2])) {
+            return true;
+        }
+
+        if (spieler.equals(board[0][2]) && spieler.equals(board[1][1]) && spieler.equals(board[2][0])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isBoardFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+}
